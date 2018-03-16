@@ -4,6 +4,8 @@ export const types = createTypes([
   'UPDATE_FORM',
   'RESET_STATE',
   'SHOW_MODAL',
+  'CLOSE_MODAL',
+  'SET_SELECTED',
 ], 'MAINFORM')
 
 const resetState = {
@@ -56,6 +58,7 @@ const resetState = {
 const initialState = {
   showEditModal: false,
   allTime: 400,
+  selected: {},
   lineFormer: [
     { name: 'ValveLine',
       id: 0,
@@ -90,7 +93,7 @@ const initialState = {
       ShortName: 'HV1',
       changes: [{ startTime: 0, endTime: 100, id: 0, duration: 100 },
                { startTime: 150, endTime: 200, id: 1, duration: 50 },
-               { startTime: 250, endTime: 300, id: 2, duration: 50 }] },
+               { startTime: 200, endTime: 300, id: 2, duration: 50 }] },
     { name: 'ValveLine',
       id: 7,
       ShortName: 'HV2',
@@ -127,6 +130,18 @@ const reducer = handleActions({
   [types.RESET_STATE]: state => ({
     ...state,
     ...resetState,
+  }),
+  [types.SHOW_MODAL]: state => ({
+    ...state,
+    showEditModal: true,
+  }),
+  [types.CLOSE_MODAL]: state => ({
+    ...state,
+    showEditModal: false,
+  }),
+  [types.SET_SELECTED]: (state, { payload }) => ({
+    ...state,
+    selected: payload,
   }),
 }, initialState)
 

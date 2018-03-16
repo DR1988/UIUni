@@ -8,10 +8,15 @@
 }
 
 .lines-keeper{
-  flex-grow: 4;
+  // flex-grow: 4;
+  // min-width: 600px;
+  // padding-left: 10px;
+  width: 100%;
 }
 
 .form-container {
   display: flex;
   overflow: hidden;
+  width: 100%;
+  min-width: 400px;
 }
